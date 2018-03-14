@@ -2,6 +2,16 @@
 html,body{
   height: 100%;
 }
+html{
+  background-color: #cceeff;
+}
+article{
+  height:100%;width:90%;max-width: 1000px;
+  background-color: #f9ffff;
+  margin:auto;
+  margin-top: 30px;
+  box-shadow: 0 0 8px;
+}
 body{font-size: 14;
   font-family: Verdana, sans-serif;
   color: #333;
@@ -24,12 +34,12 @@ p{
 .globalNav li {
     float: left;
     border-right: 1px solid #DDD;
+    /*border-left:  1px solid #DDD;*/
     background-color: #0431B4
 }
-
 .globalNav li a {
     display: block;
-    padding: 18px 34px;
+    padding: 24px 34px;
     text-align: center;
     text-decoration: none;
     color: white;
