@@ -340,7 +340,7 @@ function onClick(e){
         while(gameset===false && teban===COM_TEBAN){
           com();
           if(gameover(board)){gameset=1;}else{
-            if(pass(board,COM_TEBAN)){
+            if(pass(board,teban)){
               teban=-teban;
                 if(teban==1){alert("パスで黒の番です");}
               if(teban==-1){alert("パスで白の番です");}
