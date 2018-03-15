@@ -8,7 +8,7 @@ var gameset=false;
 var COM_TEBAN=-1;
 var EVAL_X=8;
 var EVAL_C=2;
-
+var TESU=0;
 for(var i=0;i<10;++i){
   board[i]=[]
   for(var j=0;j<10;++j){
@@ -235,7 +235,8 @@ function com(){
       ban[kohox[k]][kohoy[k]]=teban;
       flip(ban,kohox[k],kohoy[k],teban);
 
-      score=-alphabeta(ban,4,-50000,50000,-teban);
+      if(TESU>=52){score=-alphabeta(ban,8,-50000,50000,-teban);}
+      else{score=-alphabeta(ban,4,-50000,50000,-teban);}
 
       if(mhyoka<score){mx=kohox[k];my=kohoy[k];mhyoka=score;}
       for(var i=0;i<10;++i){
@@ -247,6 +248,7 @@ function com(){
     //n=Math.floor( Math.random()*kohox.lengh)
     board[mx][my]=teban;
     flip(board,mx,my,teban);
+    TESU++;
     teban=-teban;
     display();
 }
@@ -312,6 +314,7 @@ function onClick(e){
   if(0<=x&&x<8&&0<=y&&y<8&&put(board,x+1,y+1,teban)&&gameset==false){
         board[x+1][y+1]=teban;
         flip(board,x+1,y+1,teban);
+        TESU++;
         display();
         teban=-teban;
         setTimeout(function(){
