@@ -83,7 +83,6 @@ function eval(ban,te){
       for(var j=1;j<=8;++j){
         if(ban[i][j]==te){score+=200;}
         if(ban[i][j]==-te){score-=200;}
-
       }
     }
     return score;
@@ -235,8 +234,8 @@ function com(){
       ban[kohox[k]][kohoy[k]]=teban;
       flip(ban,kohox[k],kohoy[k],teban);
 
-      if(TESU>=52){score=-alphabeta(ban,8,-50000,50000,-teban);}
-      else{score=-alphabeta(ban,4,-50000,50000,-teban);}
+      if(TESU>=48){score=-alphabeta(ban,12,-50000,50000,-teban);}
+      else{score=-alphabeta(ban,5,-50000,50000,-teban);}
 
       if(mhyoka<score){mx=kohox[k];my=kohoy[k];mhyoka=score;}
       for(var i=0;i<10;++i){
@@ -334,6 +333,8 @@ function onClick(e){
             if(teban==-1){alert("パスで白の番です");}
           }
         }
+
+
         while(gameset===false && teban===COM_TEBAN){
           com();
           if(gameover(board)){gameset=1;}else{
@@ -344,12 +345,12 @@ function onClick(e){
             }
           }
         }
-      },15);
+        },100);
     }
 }
 var comment = document.getElementById('msg');
 //comment.textContent='HELLO';
 boardInit();
 display();
-setInterval("display()",5);
+setInterval("display()",3);
 canvas.addEventListener('click', onClick, false);
