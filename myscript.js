@@ -83,9 +83,10 @@ function eval(ban,te){
       for(var j=1;j<=8;++j){
         if(ban[i][j]==te){score+=200;}
         if(ban[i][j]==-te){score-=200;}
-        return score;
+
       }
     }
+    return score;
   }
 
   for(var i=1;i<=8;++i){
