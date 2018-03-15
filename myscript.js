@@ -106,7 +106,7 @@ function eval(ban,te){
   if(ban[2][7]==-te){score+=EVAL_X;}
   if(ban[7][2]==-te){score+=EVAL_X;}
   if(ban[7][7]==-te){score+=EVAL_X;}
-  /*
+
   if(e<45&&e>25){
   if(ban[1][2]==te){score-=EVAL_C;}
   if(ban[1][7]==te){score-=EVAL_C;}
@@ -124,7 +124,7 @@ function eval(ban,te){
   if(ban[7][8]==-te){score+=EVAL_C;}
   if(ban[8][2]==-te){score+=EVAL_C;}
   if(ban[8][7]==-te){score+=EVAL_C;}
-}*/
+}
   for(var i=1;i<=4;++i){
     if(ban[1][9-i]==te){score+=10;}else{break;}
   }
@@ -234,7 +234,7 @@ function com(){
       ban[kohox[k]][kohoy[k]]=teban;
       flip(ban,kohox[k],kohoy[k],teban);
 
-      score=-alphabeta(ban,4,-500,500,-teban);
+      score=-alphabeta(ban,4,-5000,5000,-teban);
 
       if(mhyoka<score){mx=kohox[k];my=kohoy[k];mhyoka=score;}
       for(var i=0;i<10;++i){
@@ -263,14 +263,7 @@ function flip(hoge,x,y,te){
     }
   }
 }
-function put(hoge,x,y,te){
-  var ban=[];
-  for(var i=0;i<10;++i){
-    ban[i]=[];
-    for(var j=0;j<10;++j){
-      ban[i][j]=hoge[i][j];
-    }
-  }
+function put(ban,x,y,te){
   /*alert(ban);
   alert(x);
   alert(y);
