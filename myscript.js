@@ -5,6 +5,7 @@ var teban=1;
 var dx=[0,1,1,1,0,-1,-1,-1];
 var dy=[1,1,0,-1,-1,-1,0,1];
 var gameset=false;
+var COM_TEBAN=-1;
 for(var i=0;i<10;++i){
   board[i]=[]
   for(var j=0;j<10;++j){
@@ -57,6 +58,24 @@ function display(){
     }
   }
 }
+function eval(ban,te){
+  return 0;
+}
+function com(){
+    //var cboard=board;
+    var kohox=[];
+    var kohoy=[];
+    for(var i=1;i<=8;++i){
+      for(var j=1;j<=8;++j){
+        if(put(i,j)){kohox.push(i);kohoy.push(j);}
+      }
+    }
+    //n=Math.floor( Math.random()*kohox.lengh)
+    board[kohox[0]][kohoy[0]]=teban;
+    flip(kohox[0],kohoy[0]);
+    teban=-teban;
+    display();
+}
 function flip(x,y){
   var tx=x,ty=y,n=0;
   for(var i=0;i<8;++i){
@@ -65,33 +84,48 @@ function flip(x,y){
       n++;
       tx+=dx[i];
       ty+=dy[i];
-
     }
     if(n>0&&board[tx+dx[i]][ty+dy[i]]===teban){
       for(var j=1;j<=n;++j){board[x+dx[i]*j][y+dy[i]*j]=teban;}
     }
   }
 }
-function put(x,y){
+function put(hoge,x,y,te){
+  var ban=[];
+  for(var i=0;i<10;++i){
+    ban[i]=[];
+    for(var j=0;j<10;++j){
+      ban[i][j]=hoge[i][j];
+    }
+  }
+  /*alert(ban);
+  alert(x);
+  alert(y);
+  alert(te);*/
   var tx=x,ty=y,n=0;
-  if(board[x][y]!=0){return false;}
+  if(ban[x][y]!=0){return false;}
   for(var i=0;i<8;++i){
     n=0;tx=x;ty=y;
-    while(board[tx+dx[i]][ty+dy[i]]===-teban){
+    while(ban[tx+dx[i]][ty+dy[i]]===-te){
       n++;
       tx+=dx[i];
-      ty+=dy[i];
-
-    }
-    if(n>0&&board[tx+dx[i]][ty+dy[i]]===teban){return true;}
+      ty+=dy[i];}
+    if(n>0&&ban[tx+dx[i]][ty+dy[i]]===te){return true;}
   }
 
-  return false;
+return false;
 }
-function pass(){
+function pass(hoge,te){
+  var ban=[];
+  for(var i=0;i<10;++i){
+    ban[i]=[];
+    for(var j=0;j<10;++j){
+      ban[i][j]=hoge[i][j];
+    }
+  }
   for(var i=1;i<=8;++i){
     for(var j=1;j<=8;++j){
-      if(put(i,j)){return false;}
+      if(put(ban,i,j,te)){return false;}
     }
   }
   return true;
@@ -109,23 +143,29 @@ function result(){
   if(b==w){alert("引き分け");}
 }
 function onClick(e){
-  var x = e.clientX - canvas.offsetLeft;
-  var y = e.clientY - canvas.offsetTop;
-  x=parseInt(x/CELL_SIZE);
-  y=parseInt(y/CELL_SIZE);
-  if(0<=x&&x<8&&0<=y&&y<8&&put(x+1,y+1)&&gameset==false){
-    board[x+1][y+1]=teban;
-    flip(x+1,y+1);
-    display();
-    teban=-teban;
-    if(pass()===true){teban=-teban;
-      if(pass()===true){gameset=1;alert("終わりです");result();}else{
-      if(teban==1){alert("パスで黒の番です")}
-      if(teban==-1){alert("パスで白の番です")}}
-
+  //if(teban===COM_TEBAN){return;}
+  var rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    x=parseInt(x/CELL_SIZE);
+    y=parseInt(y/CELL_SIZE);
+    //alert(x+" "+y);
+  if(0<=x&&x<8&&0<=y&&y<8&&put(board,x+1,y+1,teban)&&gameset==false){
+        board[x+1][y+1]=teban;
+        flip(x+1,y+1);
+        display();
+        teban=-teban;
+        if(pass(board,teban)===true){
+            teban=-teban;
+            if(pass(board,teban)===true){gameset=1;alert("終わりです");result();}else{
+            if(teban==1){alert("パスで黒の番です")}
+            if(teban==-1){alert("パスで白の番です")}
+          }
+        }
+        //if(teban==-1){com();}
     }
-  }
 }
 boardInit();
 display();
+
 canvas.addEventListener('click', onClick, false);
