@@ -106,6 +106,7 @@ function eval(ban,te){
   if(ban[2][7]==-te){score+=EVAL_X;}
   if(ban[7][2]==-te){score+=EVAL_X;}
   if(ban[7][7]==-te){score+=EVAL_X;}
+  /*
   if(e<45&&e>25){
   if(ban[1][2]==te){score-=EVAL_C;}
   if(ban[1][7]==te){score-=EVAL_C;}
@@ -123,8 +124,7 @@ function eval(ban,te){
   if(ban[7][8]==-te){score+=EVAL_C;}
   if(ban[8][2]==-te){score+=EVAL_C;}
   if(ban[8][7]==-te){score+=EVAL_C;}
-}
-
+}*/
   for(var i=1;i<=4;++i){
     if(ban[1][9-i]==te){score+=10;}else{break;}
   }
