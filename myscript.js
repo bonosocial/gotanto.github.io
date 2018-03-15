@@ -234,7 +234,7 @@ function com(){
       ban[kohox[k]][kohoy[k]]=teban;
       flip(ban,kohox[k],kohoy[k],teban);
 
-      score=-alphabeta(ban,4,-5000,5000,-teban);
+      score=-alphabeta(ban,4,-50000,50000,-teban);
 
       if(mhyoka<score){mx=kohox[k];my=kohoy[k];mhyoka=score;}
       for(var i=0;i<10;++i){
