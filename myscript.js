@@ -5,6 +5,7 @@ var teban=1;
 var dx=[0,1,1,1,0,-1,-1,-1];
 var dy=[1,1,0,-1,-1,-1,0,1];
 var gameset=false;
+var shuban=false;
 var COM_TEBAN=-1;
 var EVAL_X=8;
 var EVAL_C=2;
@@ -78,11 +79,11 @@ function display(){
 function eval(ban,te){
   var e=0;
   var score=0;
-  if(gameover(ban)){
+  if(shuban===true){
     for(var i=1;i<=8;++i){
       for(var j=1;j<=8;++j){
-        if(ban[i][j]==te){score+=200;}
-        if(ban[i][j]==-te){score-=200;}
+        if(ban[i][j]===te){score+=200;}
+        if(ban[i][j]===-te){score-=200;}
       }
     }
     return score;
@@ -197,7 +198,7 @@ function alphabeta(hoge,limit,alpha,beta,te){
         ban[i][j]=hoge[i][j];
       }
     }
-    if(kohox.length==0){score=-alphabeta(hoge,limit,-beta,-alpha,-te);return score;}
+    if(kohox.length===0){score=-alphabeta(hoge,limit,-beta,-alpha,-te);return score;}
     for(var k=0;k<kohox.length;k++){
       ban[kohox[k]][kohoy[k]]=te;
       flip(ban,kohox[k],kohoy[k],te);
@@ -217,12 +218,10 @@ function com(){
     var kohoy=[];
     var mhyoka=-1000;
     var score;
-
     koho(board,kohox,kohoy,teban);
     var mx=kohox[0];
     var my=kohoy[0];
     var ban=[];
-
     for(var i=0;i<10;++i){
       ban[i]=[];
       for(var j=0;j<10;++j){
@@ -234,7 +233,7 @@ function com(){
       ban[kohox[k]][kohoy[k]]=teban;
       flip(ban,kohox[k],kohoy[k],teban);
 
-      if(TESU>=47){score=-alphabeta(ban,24,-50000,50000,-teban);}
+      if(TESU>=47){shuban=true;score=-alphabeta(ban,30,-50000,50000,-teban);}
       else{score=-alphabeta(ban,5,-50000,50000,-teban);}
 
       if(mhyoka<score){mx=kohox[k];my=kohoy[k];mhyoka=score;}
@@ -266,10 +265,6 @@ function flip(hoge,x,y,te){
   }
 }
 function put(ban,x,y,te){
-  /*alert(ban);
-  alert(x);
-  alert(y);
-  alert(te);*/
   var tx=x,ty=y,n=0;
   if(ban[x][y]!=0){return false;}
   for(var i=0;i<8;++i){
@@ -309,7 +304,6 @@ function onClick(e){
     var y = e.clientY - rect.top;
     x=parseInt(x/CELL_SIZE);
     y=parseInt(y/CELL_SIZE);
-    //alert(x+" "+y);
   if(0<=x&&x<8&&0<=y&&y<8&&put(board,x+1,y+1,teban)&&gameset==false){
         board[x+1][y+1]=teban;
         flip(board,x+1,y+1,teban);
@@ -333,15 +327,13 @@ function onClick(e){
             if(teban==-1){alert("パスで白の番です");}
           }
         }
-
-
         while(gameset===false && teban===COM_TEBAN){
           com();
           if(gameover(board)){gameset=1;}else{
             if(pass(board,teban)){
               teban=-teban;
                 if(teban==1){alert("パスで黒の番です");}
-              if(teban==-1){alert("パスで白の番です");}
+                if(teban==-1){alert("パスで白の番です");}
             }
           }
         }
