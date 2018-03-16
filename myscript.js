@@ -107,7 +107,7 @@ function eval(ban,te){
   if(ban[7][2]==-te){score+=EVAL_X;}
   if(ban[7][7]==-te){score+=EVAL_X;}
 
-  if(e<45&&e>35){
+  if(e<45&&e>25){
   if(ban[1][2]==te){score-=EVAL_C;}
   if(ban[1][7]==te){score-=EVAL_C;}
   if(ban[2][2]==te){score-=EVAL_C;}
