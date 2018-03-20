@@ -233,7 +233,7 @@ function com(){
       ban[kohox[k]][kohoy[k]]=teban;
       flip(ban,kohox[k],kohoy[k],teban);
 
-      if(TESU>=47){shuban=true;score=-alphabeta(ban,30,-50000,50000,-teban);}
+      if(TESU>=47){shuban=true;score=-alphabeta(ban,30,-500000,500000,-teban);}
       else{score=-alphabeta(ban,5,-50000,50000,-teban);}
 
       if(mhyoka<score){mx=kohox[k];my=kohoy[k];mhyoka=score;}
@@ -243,7 +243,6 @@ function com(){
         }
       }
     }
-    //n=Math.floor( Math.random()*kohox.lengh)
     board[mx][my]=teban;
     flip(board,mx,my,teban);
     TESU++;
