@@ -111,16 +111,16 @@ function eval(ban,te){
   if(e<45&&e>25){
   if(ban[1][2]==te){score-=EVAL_C;}
   if(ban[1][7]==te){score-=EVAL_C;}
-  if(ban[2][2]==te){score-=EVAL_C;}
-  if(ban[2][7]==te){score-=EVAL_C;}
+  if(ban[2][1]==te){score-=EVAL_C;}
+  if(ban[2][8]==te){score-=EVAL_C;}
   if(ban[7][1]==te){score-=EVAL_C;}
   if(ban[7][8]==te){score-=EVAL_C;}
   if(ban[8][2]==te){score-=EVAL_C;}
   if(ban[8][7]==te){score-=EVAL_C;}
   if(ban[1][2]==-te){score+=EVAL_C;}
   if(ban[1][7]==-te){score+=EVAL_C;}
-  if(ban[2][2]==-te){score+=EVAL_C;}
-  if(ban[2][7]==-te){score+=EVAL_C;}
+  if(ban[2][1]==-te){score+=EVAL_C;}
+  if(ban[2][8]==-te){score+=EVAL_C;}
   if(ban[7][1]==-te){score+=EVAL_C;}
   if(ban[7][8]==-te){score+=EVAL_C;}
   if(ban[8][2]==-te){score+=EVAL_C;}
