@@ -83,6 +83,17 @@ code {
   margin-left: 30px;
   margin-right: 30px;
 }
+ul.float{
+   position:relative;
+   float:left;
+   left:50%;
+}
+
+li.prof {
+   position:relative;
+   left:-50%;
+}
+
 /*
 値
   長さ
