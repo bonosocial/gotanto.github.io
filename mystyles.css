@@ -77,7 +77,7 @@ header{
 }
 .fra{
   background-image: url("images/gota2.jpg");
-   background-size: cover;
+  background-size: cover;
 }
 code {
   font-size: 16px;
