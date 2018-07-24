@@ -75,6 +75,10 @@ header{
 .nya {
   background-image: url("images/neko.jpg")
 }
+.fra{
+  background-image: url("images/gota2.jpg");
+   background-size: contain;
+}
 code {
   font-size: 16px;
   line-height: 1.4;
