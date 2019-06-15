@@ -1,95 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-  <head>
-  <link rel="stylesheet" href="noemalize.css">
-    <link rel="icon" href="images/favicon.ico">
-
-
-    <meta charset="utf-8">
-    <meta name="description" content="数学のPDF置き場">
-    <title>五炭糖の部屋</title>
-    <style>
-    </style>
-    <link rel="stylesheet" href="mystyles.css">
-  </head>
-  <header>
-    <ul class="globalNav">
-    <li class="active">
-        <a href="index.html">
-            <strong>ホーム</strong>
-            <!--<span>home</span>-->
-        </a>
-    </li>
-    <li>
-        <a href="math.html">
-            <strong>数学</strong>
-            <!--<span>company</span>-->
-        </a>
-    </li>
-    <li>
-        <a href="kyopro.html">
-            <strong>競プロ</strong>
-            <!--<span>contact</span>-->
-        </a>
-    </li>
-    <li>
-        <a href="prof.html">
-            <strong>プロフィール</strong>
-            <!--<span>contact</span>-->
-        </a>
-    </li>
-    <li>
-        <a href="nyan.html">
-            <strong>にゃーん</strong>
-            <!--<span>contact</span>-->
-        </a>
-    </li>
-    <li>
-        <a href="othello.html">
-            <strong>ボドゲ置き場</strong>
-            <!--<span>contact</span>-->
-        </a>
-    </li>
-  </ul>
-  </header>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link href="/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+<title>ごたんとうのへや</title>
+</head>
 <body>
-  <div align="center">
-    <article>
-      <br>数学関係のPDF置き場
-  <ul>
-    William J. Cook, et al.<br>"Combinatorial Optimization Wiley-Interscience Series<br>
-       in Discrete Mathematics and Optimization",<br>John Wiley & Sons, 1997.<br>のレジュメです。まだまだ作業中です。
-    <br>
-    <br>
-    <a href="MST.pdf"><strong>"Combinatorial Optimization"-最小全域木</strong></a>
-    <!--<span>contact</span>-->
-    <br>
-    <br>
-    <a href="spath.pdf"><strong>"Combinatorial Optimization"-最短路</strong></a>
-    <!--<span>contact</span>-->
-    <br>
-    <br>
-    <!--a target="_blank"  href="https://www.amazon.co.jp/gp/product/047155894X/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=047155894X&linkCode=as2&tag=gotanto0b-22&linkId=2ff09a441a08a3c13001942a58eba827"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=047155894X&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL160_&tag=gotanto0b-22" ></a><img src="//ir-jp.amazon-adsystem.com/e/ir?t=gotanto0b-22&l=am2&o=9&a=047155894X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /-->
-
-    <br>オラクル付きチューリングマシンを考えることで、
-     <br>P対NP問題が単純なシミュレーションによっては解けないことが分かるという話のPDFです。
-    <br>
-    <br><a href="oracle.pdf"><strong>オラクルとP対NP問題</strong></a>
-    <!--<span>contact</span>-->
-    <br>
-    <br>
-
-ガロア祭2017の問題5の解答。
-<br>手書きで解いた問題はデータが残ってない。
-<br>
-<br>
-      <a href="galois5.pdf"><strong>ガロア祭2017問題5の解答</strong></a>
-      <!--<span>contact</span>-->
-      <br>
-
-</ul>
-</article>
-  </body>
-  <footer>
-  </footer>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.html">ホーム</a></li>
+    <li class="breadcrumb-item active" sria-current="page" >数学</a></li>
+    </ol>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <h3>数学のPDF集</h3>
+      <div class="container">
+        <div class="card" style="max-width: 25rem">
+          <div class="card-body">
+            <h4 class="card-title">組合せ最適化</h4>
+            <p>William J. Cook, et al."Combinatorial Optimization Wiley-Interscience Series in Discrete Mathematics and Optimization",John Wiley & Sons, 1997.のレジュメ</p>
+            <div class="list-group">
+              <a href="math/MST.pdf" class="list-group-item list-group-item-action">最小全域木</a>
+              <a href="math/spath.pdf" class="list-group-item list-group-item-action">最短路</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
