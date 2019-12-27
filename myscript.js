@@ -1,5 +1,12 @@
 CELL_SIZE=504/8;
 BOARD_SIZE=504;
+if (navigator.userAgent.indexOf('iPhone') > 0 ||
+  navigator.userAgent.indexOf('iPad') > 0 ||
+  navigator.userAgent.indexOf('iPod') > 0 ||
+  navigator.userAgent.indexOf('Android') > 0 ){
+    CELL_SIZE=320/8;
+    BOARD_SIZE=320;
+}
 var board=[];
 var teban=1;
 var dx=[0,1,1,1,0,-1,-1,-1];
