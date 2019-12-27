@@ -40,7 +40,7 @@ function display(){
   var ctx = canvas.getContext("2d");
   ctx.fillStyle = 'rgb(0,230,0)';
   ctx.fillRect(0,0,BOARD_SIZE,BOARD_SIZE);
-  for(var i=0;i<10;++i){
+  for(var i=0;i<9;++i){
       ctx.beginPath();
       ctx.moveTo(CELL_SIZE*i,0);
       ctx.lineTo(CELL_SIZE*i,BOARD_SIZE);
