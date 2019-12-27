@@ -4,8 +4,8 @@ if (navigator.userAgent.indexOf('iPhone') > 0 ||
   navigator.userAgent.indexOf('iPad') > 0 ||
   navigator.userAgent.indexOf('iPod') > 0 ||
   navigator.userAgent.indexOf('Android') > 0 ){
-    CELL_SIZE=320/8;
-    BOARD_SIZE=320;
+    CELL_SIZE=328/8;
+    BOARD_SIZE=328;
 }
 var board=[];
 var teban=1;
